@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\TopicController as AdminTopicController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TopicController;
 use App\Models\Topic;
@@ -28,11 +30,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    
-    Route::group(['prefix' => 'topic'], function(){
+
+    Route::group(['prefix' => 'user'], function(){
         Route::get('/',[TopicController::class,'index'])->name('topic.index');
     });
 
+    Route::middleware('admin')->group(function(){
+    Route::group(['prefix' => 'admin'], function(){
+            Route::get('/',[AdminTopicController::class,'index'])->name('admin.index');
+        });
+
+    });
 });
 
 require __DIR__.'/auth.php';

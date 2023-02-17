@@ -54,11 +54,20 @@ class User extends Authenticatable
         return $this->belongsToMany(Reply::class,'likes');
     }
 
-    public function roles(){
-        return $this->belongsToMany(Role::class);
-    }
-
     public function user_roles(){
         return $this->belongsToMany(Role::class,'user_roles');
+    }
+
+    public function is_Admin(){
+        return $this->has_Role('admin');
+    }
+
+    public function has_Role(string $role){
+        
+        if($this->user_roles()->where('name',$role)->first()){
+            return true;
+        }
+        return false;
+
     }
 }
