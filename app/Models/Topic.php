@@ -9,14 +9,15 @@ class Topic extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['content', 'user_id'];
+    protected $fillable = ['user_id', 'title', 'description'];
 
-    public function users(){
+    public function users()
+    {
         return $this->belongsTo((User::class));
     }
 
-    public function replies(){
+    public function replies()
+    {
         return $this->hasMany(Reply::class);
     }
-
 }
