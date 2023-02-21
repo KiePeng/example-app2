@@ -9,17 +9,23 @@ class Reply extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['content','user_id','topic_id'];
+    protected $fillable = ['reply_content', 'user_id', 'topic_id'];
 
-    public function topics(){
+    
+    public function topic()
+    {
         return $this->belongsTo(Topic::class);
     }
 
-    public function users(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function likes(){
-        return $this->belongsToMany(User::class,'likes');
+    public function likes()
+    {
+        return $this->belongsToMany(User::class, 'likes');
     }
+
+
 }

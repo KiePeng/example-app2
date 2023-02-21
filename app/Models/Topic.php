@@ -11,13 +11,20 @@ class Topic extends Model
 
     protected $fillable = ['user_id', 'title', 'description'];
 
-    public function users()
+    protected $append = ['reply_count'];
+
+    public function user()
     {
-        return $this->belongsTo((User::class));
+        return $this->belongsTo(User::class);
     }
 
     public function replies()
     {
         return $this->hasMany(Reply::class);
     }
+
+    public function getReplyCountAttribute(){
+        return $this->replies()->count();
+    }
+
 }
