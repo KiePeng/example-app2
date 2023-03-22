@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\TopicController as AdminTopicController;
+use App\Http\Controllers\MyTopicController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReplyController;
 use App\Http\Controllers\TopicController;
@@ -33,15 +34,18 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::group(['prefix' => 'user'], function () {
+
         Route::get('/', [TopicController::class, 'index'])->name('topic.index');
         Route::get('/create', [TopicController::class, 'create'])->name('topic.create');
         Route::post('/create', [TopicController::class, 'store'])->name('topic.store');
-        Route::get('{id}', [TopicController::class, 'show'])->name('topic.show');
-
+        Route::get('{id}/show', [TopicController::class, 'show'])->name('topic.show');
 
         Route::get('{id}/reply/create', [ReplyController::class, 'create'])->name('topic.reply.create');
         Route::post('{id}/reply/create', [ReplyController::class, 'store'])->name('topic.reply.store');
         Route::put('{id}/{topic_id}/like',[ReplyController::class,'like'])->name('topic.reply.like');
+
+        Route::get('/myTopic',[MyTopicController::class,'index'])->name('myTopic.index');
+        Route::delete('/myTopic/{id}/destroy',[MyTopicController::class,'destroy'])->name('myTopic.destroy');
 
     });
 

@@ -12,7 +12,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <table>
 
-                    <form method="POST" action="{{ route('topic.reply.create', $topic->id) }}">
+                    <form method="POST" action="{{ route('topic.reply.store', $topic->id) }}">
                         @csrf
                         {{-- reply --}}
                         <div>

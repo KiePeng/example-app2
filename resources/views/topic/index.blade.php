@@ -72,9 +72,9 @@
                                     <div class="font-light  col-span-2">
                                         {{ $topic->user->name }}
                                     </div>
-                                    <div class="font-light  col-span-2">
-                                        {{ $topic->replies()->latest()->first()->created_at }}
-                                    </div>
+                                    {{-- <div class="font-light  col-span-2">
+                                        {{ $topic->last_action}}
+                                    </div> --}}
                                 </div>
                                 <div class="grid grid-cols-12 grid-rows-1 gap-2">
 

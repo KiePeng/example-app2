@@ -21,13 +21,15 @@
                             {{ __('Admin') }}
                         </x-nav-link>
                     @else
-
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Dashboard') }}
+                    </x-nav-link>
                         <x-nav-link :href="route('topic.index')" :active="request()->routeIs('topic')">
                             {{ __('Topic') }}
                         </x-nav-link>
-                        {{-- <x-nav-link :href="route('mytopic.index')" :active="request()->routeIs('mytopic')">
-                            {{ __('My Topic') }}
-                        </x-nav-link> --}}
+                        <x-nav-link :href="route('myTopic.index')" :active="request()->routeIs('myTopic')">
+                            {{ __('MyTopic') }}
+                        </x-nav-link>
                     @endif
                 </div>
             </div>
