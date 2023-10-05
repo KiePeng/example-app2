@@ -30,25 +30,20 @@
                 </a>
             </div>
 
-
             <div class="p-6 text-gray-900 dark:text-gray-100 grid grid-cols-12  text-xl">
 
                 <div class="font-bold underline underline-offset-4 col-span-6">
                     Topic Title
-
                 </div>
 
                 <div class="font-bold underline underline-offset-4 col-span-2 ">
                     Replies
-
                 </div>
                 <div class="font-bold underline underline-offset-4 col-span-2">
                     Topic Starter
-
                 </div>
                 {{-- <div class="font-bold underline underline-offset-4 col-span-2">
                     Last Action
-
                 </div> --}}
             </div>
 
