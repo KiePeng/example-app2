@@ -26,7 +26,7 @@
                             <x-text-input id="description" class="block mt-1 w-full" type="text" name="description" :value="old('description')" required autofocus autocomplete="description" />
                             <x-input-error :messages="$errors->get('description')" class="mt-2" />
                         </div>
-
+        
                         <div>
                             <br>
                             <x-primary-button class="ml-4" type="submit">

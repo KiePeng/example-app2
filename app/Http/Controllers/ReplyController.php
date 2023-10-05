@@ -35,20 +35,18 @@ class ReplyController extends Controller
         return redirect(route('topic.show', ['id' => $id, 'topic' => $topic, 'reply' => $reply]));
     }
 
-    public function like(Request $request, $id, $topic_id){
+    public function like(Request $request, $id, $topic_id)
+    {
         $user_id = Auth::user()->id;
         $like = $request->like;
         $reply = Reply::find($id);
         //dd($reply);
 
-        if ($like && boolval($request->like)===true) {
+        if ($like && boolval($request->like) === true) {
             $reply->likes()->attach($user_id);
-
-        }
-        else{
+        } else {
             $reply->likes()->detach($user_id);
-
         }
-        return redirect(route('topic.show',[$topic_id]));
+        return redirect(route('topic.show', [$topic_id]));
     }
 }

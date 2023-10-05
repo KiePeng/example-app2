@@ -46,10 +46,10 @@
                     Topic Starter
 
                 </div>
-                <div class="font-bold underline underline-offset-4 col-span-2">
+                {{-- <div class="font-bold underline underline-offset-4 col-span-2">
                     Last Action
 
-                </div>
+                </div> --}}
             </div>
 
             @foreach ($topics as $topic)
